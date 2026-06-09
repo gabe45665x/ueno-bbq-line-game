@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>上野匠 炭火燒肉職人</title>
+  <link rel="stylesheet" href="./style.css?v=47" />
+</head>
+<body>
+  <div id="app" class="app">
+    <section id="screen-home" class="screen active">
+      <div class="home-bg"></div>
+      <div class="logo-wrap">
+        <div class="logo-main">上野匠</div>
+        <div class="logo-badge">烤肉飯</div>
+        <div class="logo-sub">炭火燒肉職人</div>
+      </div>
+      <div class="home-copy">把便當做好，<br>就是最重要的事。</div>
+      <button id="startBtn" class="wood-btn big">開始營業</button>
+      <div class="home-hint">點擊開始遊戲</div>
+      <div class="home-bottom">
+        <button class="small-btn" id="howBtn">？ 遊戲說明</button>
+        <button class="small-btn" id="soundBtn">🔊</button>
+      </div>
+    </section>
+
+    <section id="screen-game" class="screen">
+      <div class="game-top">
+        <div class="order-card">
+          <div class="small-title">今日選單</div>
+          <div id="orderName" class="order-name">烤五花肉飯</div>
+          <div class="line"></div>
+          <div class="small-title">雲林食材</div>
+          <div id="needIcons" class="need-icons"></div>
+          <div class="order-tagline">每日精選，產地直達</div>
+        </div>
+        <div class="brand">
+          <div class="brand-main">上野匠</div>
+          <div class="brand-badge">烤肉飯</div>
+          <div class="brand-sub">炭火燒肉職人</div>
+        </div>
+        <div class="menu-card">
+          <div class="small-title">選擇肉品</div>
+          <button data-meat="pork" class="meat-tab">五花肉</button>
+          <button data-meat="loin" class="meat-tab">里肌肉</button>
+          <button data-meat="chicken" class="meat-tab">雞腿排</button>
+          <button data-meat="rib" class="meat-tab">排骨</button>
+        </div>
+      </div>
+
+      <div class="play-area">
+        <div class="meter fire-meter">
+          <div class="meter-title">火力 🔥</div>
+          <div class="meter-label top">大</div>
+          <input id="fireRange" type="range" min="1" max="3" value="2">
+          <div class="meter-label mid">中</div>
+          <div class="meter-label">小</div>
+        </div>
+        <div class="meter heat-meter">
+          <div class="meter-title">熟度</div>
+          <div class="heat-track">
+            <span>生肉</span><span>半熟</span><span class="perfect">完美★</span><span>烤焦</span>
+            <div id="heatPointer" class="heat-pointer"></div>
+          </div>
+        </div>
+        <div class="grill-wrap">
+          <div id="flipAlert" class="flip-alert">返せ！<small>翻面！</small></div>
+          <div class="smoke s1"></div><div class="smoke s2"></div><div class="smoke s3"></div>
+          <div class="grill">
+            <div class="coals"></div><div class="grid-lines"></div><div id="meatLayer" class="meat-layer"></div>
+          </div>
+        </div>
+        <aside class="bento-panel">
+          <div class="bento-title">便當盒</div>
+          <div class="bento-box">
+            <div id="bentoMeatSlot" class="bento-slot meat-slot"></div>
+            <div class="bento-slot rice-slot"><span>烤</span></div>
+            <div class="bento-slot"></div><div class="bento-slot"></div><div class="bento-slot"></div><div class="bento-slot"></div>
+          </div>
+          <div id="progressText" class="progress-text">0 / 3</div>
+          <button id="serveBtn" class="red-btn">夾進便當盒</button>
+        </aside>
+      </div>
+      <div id="hintText" class="hint">選擇肉品，放上烤網開始。</div>
+      <img id="fbLabel" class="fb-label" alt="">
+    </section>
+
+    <section id="screen-result" class="screen">
+      <div class="result-panel">
+        <div class="stars">★★★★★</div>
+        <div class="result-title">完美出餐</div>
+        <div id="resultDish" class="result-dish">烤五花肉飯</div>
+        <div class="result-bento-wrap">
+          <div class="result-smoke r1"></div><div class="result-smoke r2"></div><div class="result-smoke r3"></div>
+          <img id="resultBento" class="result-bento" src="" alt="出餐便當">
+        </div>
+        <div class="ticket-row">
+          <div class="ticket"><b>上野匠<br>抽獎券</b><small>NO.000127</small></div>
+          <div class="ticket-plus">+1 張<br><small>抽獎券入手！</small></div>
+        </div>
+        <button id="nextBtn" class="red-btn big">繼續接單 ➜</button>
+      </div>
+    </section>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="./game.js?v=15"></script>
+</body>
+</html>
