@@ -518,9 +518,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--machine-width);
+  width: 100%;
+  max-width: 360px;
   aspect-ratio: 1100 / 272;
-  margin: 8px auto 26px;
+  margin: 10px auto 26px;
   background: url("./assets/btn_continue.png") center / contain no-repeat;
   text-decoration: none;
   color: #fff;
