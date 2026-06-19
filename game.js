@@ -23,5 +23,5 @@ function nextOrder(){currentIndex=(currentIndex+1)%orderKeys.length; setOrder(or
 $('startBtn').addEventListener('click',()=>{currentIndex=0; setOrder(orderKeys[currentIndex]); showScreen('game')}); $('serveBtn').addEventListener('click',servePiece); $('nextBtn').addEventListener('click',nextOrder); document.querySelectorAll('.meat-tab').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.dataset.meat; currentIndex=orderKeys.indexOf(key); setOrder(key)})); $('howBtn').addEventListener('click',()=>alert('玩法：看到「返せ」點肉翻面，進入完美熟度時按「夾進便當盒」。完成訂單可得抽獎券。')); $('soundBtn').addEventListener('click',()=>toast('預覽版尚未加入音效，正式版可加入滋滋聲、出餐叮聲。'));
 
 // 操作畫面：把 941×1672 背景畫布等比縮放置中（四周黑邊）
-function fitGame(){const g=document.getElementById('screen-game'); if(!g) return; g.style.setProperty('--gfit', Math.min(window.innerWidth/941, window.innerHeight/1672));}
+function fitGame(){const g=document.getElementById('screen-game'); if(!g) return; const pad=24; g.style.setProperty('--gfit', Math.min((window.innerWidth-pad)/941, (window.innerHeight-pad)/1672));}
 window.addEventListener('resize',fitGame); window.addEventListener('orientationchange',fitGame); fitGame();
