@@ -25,8 +25,8 @@ body {
   min-height: 100%;
   background:
     radial-gradient(circle at 50% 0%, rgba(202, 126, 47, 0.18), transparent 30%),
-    radial-gradient(circle at 20% 25%, rgba(93, 34, 18, 0.35), transparent 34%),
-    radial-gradient(circle at 82% 22%, rgba(99, 37, 18, 0.28), transparent 30%),
+    radial-gradient(circle at 20% 24%, rgba(96, 35, 18, 0.31), transparent 32%),
+    radial-gradient(circle at 80% 24%, rgba(96, 35, 18, 0.31), transparent 32%),
     linear-gradient(180deg, #23110b, #090403 34%, #050201 100%);
   color: var(--ember-text);
   font-family: "BiauKai TC", "STKaiti", "Noto Serif TC", "PingFang TC", "Microsoft JhengHei", serif;
@@ -58,7 +58,13 @@ button {
     repeating-linear-gradient(
       135deg,
       transparent 0 20px,
-      rgba(255, 210, 132, 0.035) 20px 21px,
+      rgba(255, 210, 132, 0.022) 20px 21px,
+      transparent 21px 41px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 20px,
+      rgba(255, 210, 132, 0.022) 20px 21px,
       transparent 21px 41px
     );
   pointer-events: none;
