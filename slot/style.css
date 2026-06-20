@@ -549,3 +549,6 @@ button {
 .back-to-game:active {
   transform: translateY(2px);
 }
+/* 背景音樂開關 */
+.mute-btn{position:fixed;top:14px;right:14px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(214,162,77,.55);background:rgba(10,6,3,.72);color:var(--gold-soft);font-size:19px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.mute-btn:active{transform:scale(.92)}

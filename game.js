@@ -25,3 +25,18 @@ $('startBtn').addEventListener('click',()=>{currentIndex=0; setOrder(orderKeys[c
 // 操作畫面：把 941×1672 背景畫布等比縮放置中（四周黑邊）
 function fitGame(){const g=document.getElementById('screen-game'); if(!g) return; const pad=24; g.style.setProperty('--gfit', Math.min((window.innerWidth-pad)/941, (window.innerHeight-pad)/1672));}
 window.addEventListener('resize',fitGame); window.addEventListener('orientationchange',fitGame); fitGame();
+
+// 背景音樂（無限循環）
+(function(){
+  const bgm=$('bgm'), muteBtn=$('muteBtn');
+  if(!bgm) return;
+  let started=false;
+  const muted=()=>localStorage.getItem('uenoMute')==='1';
+  function icon(){ if(muteBtn) muteBtn.textContent=(muted()||bgm.paused)?'🔇':'🔊'; }
+  function start(){ if(muted()){icon();return;} bgm.volume=0.45; const p=bgm.play(); if(p&&p.then){ p.then(()=>{started=true;icon();}).catch(()=>{}); } else { started=true; icon(); } }
+  if(muteBtn){ muteBtn.addEventListener('click',(e)=>{ e.stopPropagation(); if(bgm.paused){ localStorage.removeItem('uenoMute'); bgm.volume=0.45; bgm.play().catch(()=>{}); started=true; } else { bgm.pause(); localStorage.setItem('uenoMute','1'); } icon(); }); }
+  const sb=$('startBtn'); if(sb) sb.addEventListener('click',start);
+  document.addEventListener('click',()=>{ if(!started && !muted()) start(); });
+  document.addEventListener('touchstart',()=>{ if(!started && !muted()) start(); },{passive:true});
+  icon();
+})();

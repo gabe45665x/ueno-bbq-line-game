@@ -227,3 +227,18 @@ if (storedPrize) {
 
 window.addEventListener("resize", syncLayout);
 spinButton.addEventListener("click", startSpin);
+
+// 背景音樂（沿用主遊戲的靜音設定）
+(function(){
+  const bgm=document.getElementById('bgm'), muteBtn=document.getElementById('muteBtn');
+  if(!bgm) return;
+  let started=false;
+  const muted=()=>localStorage.getItem('uenoMute')==='1';
+  function icon(){ if(muteBtn) muteBtn.textContent=(muted()||bgm.paused)?'🔇':'🔊'; }
+  function start(){ if(muted()){icon();return;} bgm.volume=0.45; const p=bgm.play(); if(p&&p.then){ p.then(()=>{started=true;icon();}).catch(()=>{}); } else { started=true; icon(); } }
+  if(muteBtn){ muteBtn.addEventListener('click',function(e){ e.stopPropagation(); if(bgm.paused){ localStorage.removeItem('uenoMute'); bgm.volume=0.45; bgm.play().catch(function(){}); started=true; } else { bgm.pause(); localStorage.setItem('uenoMute','1'); } icon(); }); }
+  start();
+  document.addEventListener('click',function(){ if(!started && !muted()) start(); });
+  document.addEventListener('touchstart',function(){ if(!started && !muted()) start(); },{passive:true});
+  icon();
+})();
