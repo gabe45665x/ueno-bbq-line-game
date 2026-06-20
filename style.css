@@ -182,3 +182,11 @@ body:has(#screen-game.active){background:#000;overflow:hidden}
 #screen-home .logo-wrap,#screen-home .home-copy,#screen-home .home-hint,#screen-home .home-bottom{display:none!important}
 #screen-home #startBtn{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;padding:0;opacity:0;background:none;border:none;z-index:3;cursor:pointer}
 #screen-home #startBtn:active{background:rgba(255,200,90,.06)}
+
+/* 隱藏翻面提示 */
+#screen-game .flip-alert{display:none!important}
+/* 遊戲提示訊息改到烤網上方（原翻面提示位置） */
+body:has(#screen-game.active) .toast{bottom:auto;top:28%}
+/* 再來一次：左下角圖片按鈕（重新開始遊戲） */
+#screen-game #restartBtn{position:absolute;left:3%;top:87.6%;width:24.5%;aspect-ratio:1366/606;background:url("./assets/btn_restart.png") center/contain no-repeat;border:none;box-shadow:none;color:transparent;font-size:0;padding:0;margin:0;z-index:4;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#screen-game #restartBtn:active{transform:translateY(2px)}
